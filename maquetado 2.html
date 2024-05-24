@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi ubicación</title>
+    <style>
+        body {
+            background-color: lightcoral;
+            font-family: verdana;
+        }
+        header {
+            background-color: yellow;
+            text-align: center;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 130px;
+        }
+        header h1 {
+            font-size: 40px;
+            align-items: center;
+        }
+        header p {
+            font-size: 25px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+        .formulario {
+            background-color: white;
+            width: 900px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+
+        }
+        .formulario h2 {
+            font-size: 50px;
+        }
+        .formulario h3 {
+            font-size: 30px;
+        }
+        .formulario input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 30px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .formulario button {
+            padding: 10px 60px;
+            background-color: yellow;
+            font-size: 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 800px;
+            border: 5px solid black;
+        }
+        .formulario button:hover {
+            background-color: lightcoral;
+        }
+        .mapa {
+            width: 1200px;
+            height: 800px;
+            border-radius: 10px;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>REGISTRO A EVENTO DEMO</h1>
+        <p>Llene los siguientes datos para registrarse al evento.</p>
+    </header>
+    <div class="container">
+        <div class="formulario">
+            <h2>Datos de Registro</h2>
+
+            <h3>Fecha</h3>
+            <input type="date" id="fechaRegistro" name="fechaRegistro">
+            
+            <h3>Direccion</h3>
+            <input type="text" id="palabraClave" name="palabraClave" placeholder="Palabra clave de ubicación">
+            
+            <!-- Botón para ubicar en el mapa -->
+            <button onclick="ubicarEnMapa()">Ubicar en Mapa</button>
+            
+            <h3>Nombre</h3>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            
+            <h3>Apellido</h3>
+            <input type="text" id="apellido" name="apellido" placeholder="Apellido">
+
+            <button onclick="submitFormulario()">Enviar</button>
+        </div>
+
+        <div class="mapa" id="mapa"></div>
+    </div>
+    
+    <!-- Incluir la API de Google Maps JavaScript con tu clave de API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGKCwfM236J2SoyyyLQdhuecvAPO1Fg68&callback=inicializarMapa" async defer></script>
+    
+    <!--script para el formulario-->
+    <script>
+        let mapa;
+        let marcador;
+
+        function submitFormulario() {
+            const fecha = document.getElementById('fechaRegistro').value;
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            
+            if (fecha && nombre && apellido) {
+                // Aquí puedes enviar los datos del formulario si es necesario
+                alert('Datos introducidos:\nFecha: ' + fecha + '\nNombre: ' + nombre + '\nApellido: ' + apellido);
+            } else {
+                alert('Por favor, rellene todos los campos.');
+            }
+        }
+
+        function ubicarEnMapa() {
+            const palabraClave = document.getElementById('palabraClave').value;
+            
+            if (palabraClave) {
+                // Geocode la palabra clave para obtener las coordenadas
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ address: palabraClave }, function(results, status) {
+                    if (status === 'OK' && results && results[0] && results[0].geometry && results[0].geometry.location) {
+                        const ubicacion = results[0].geometry.location;
+                        
+                        // Centra el mapa en la ubicación encontrada y hace zoom
+                        mapa.setCenter(ubicacion);
+                        mapa.setZoom(15);
+                        
+                        // Elimina el marcador anterior, si existe
+                        if (marcador) {
+                            marcador.setMap(null);
+                        }
+                        
+                        // Añade un marcador en la ubicación encontrada
+                        marcador = new google.maps.Marker({
+                            position: ubicacion,
+                            map: mapa,
+                            title: palabraClave
+                        });
+                    } else {
+                        alert('No se pudo encontrar la ubicación en el mapa.');
+                    }
+                });
+            } else {
+                alert('Por favor, introduzca una palabra clave de ubicación.');
+            }
+        }
+
+        function inicializarMapa() {
+            mapa = new google.maps.Map(document.getElementById('mapa'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 2
+            });
+        }
+    </script>    
+</body>
+</html>

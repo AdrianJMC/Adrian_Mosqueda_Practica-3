@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de vida</title>
+</head>
+    <style>
+        body
+        {
+            background-color: white;
+        }
+        header
+        {
+            background-color: purple;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+
+        }
+        header h1
+        {
+            color: white;
+            font-size: 70px;
+            font-weight: bolder;
+            font-family:Georgia;
+            margin: 0px;
+        }
+        header p
+        {
+            color: white;
+            font-size: 40px;
+            font-family:Helvetica;
+        }
+        section h1
+        {
+            background-color: purple;
+            border-radius: 100px;
+            color:white;
+            text-align: center;
+            font-size: 30px;
+            height: 70px;
+            font-family:Verdana ;
+            margin: 0px;
+            
+        }
+        section ul
+        {   
+            background-color: pink;
+            border-radius: 20px;
+            font-size: large;
+            
+        }
+        section li
+        {
+            color: black;
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family:Tahoma;
+        }
+        section h2
+        {
+            background-color: purple;
+            border-radius: 100px;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            height: 70px;
+            margin: 0;
+            font-family:Verdana ;
+        }
+        section h3
+        {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            height: 100px;
+            margin: 10px;
+            font-family:Verdana ;
+        }
+        section h5
+        {
+            color:black;
+            font-size: 27px;
+            font-weight: bold;
+            font-family:Tahoma;
+            margin: 15px;
+        }
+        .spacing 
+        {
+            height: 20px;
+        }
+        .image-container {
+        float: left;
+        width: 320px; /* Ajusta el ancho según sea necesario */
+        padding: 0px;
+        box-sizing: border-box;
+        background: url('IMG_20231010_201150.jpg') no-repeat center center; /* Ajusta la ruta de la imagen según sea necesario */
+        background-size: cover; /* Esto hará que la imagen de fondo cubra todo el contenedor */
+        border-radius: 50px;
+        }
+        .image-container img {
+            width: 320px;
+            border-radius: 50px;
+        }
+
+
+
+
+    </style>
+<body>
+        <!-- Atajo Emmet: header>h1+p -->
+    <header>
+        <h1>Curriculum Vitae de Adrian Mosqueda</h1>
+        <p>Desarrollador Web en progreso. Rumbo al exito...</p>        
+
+    </header>
+    <div class="image-container">
+        <img src="IMG_20231010_201150.jpg" alt="Foto de Adrian Mosqueda"> <!-- Reemplaza "tu_imagen.jpg" con la ruta de tu imagen -->
+    </div>
+    <div class="details">
+        <!-- Atajo Emmet: section>h2+ul>li*7 -->
+    <section>
+
+        <h1>Datos personales</h1>
+        <ul>
+            <h5> -Nombre y Apellidos: Adrian Jesus Mosqueda Chan</h5>
+            <h5> -Direccion: C.20c #302 x5 y 5A Xcumpich-Yucatan</h5>
+            <h5> -Telefono: 9991014280</h5>
+            <h5> -Email: derrapo67@gmail.com</h5>
+            <h5> -Nacionalidad: Mexicano</h5>
+            <h5> -Fecha de Nacimiento: 11 de octubre del 2005</h5>
+            <h5> -CURP: MOCA061210HYNSHDA0</h5>
+        </ul>
+    </section>
+
+        <!-- Atajo Emmet: section>h2+ul>li*3 -->
+
+        <section>
+            <h2>Experiencia Laboral</h2>
+            <ul>
+                <li>Desarrollador Front-End en compañia ABC (2020-2023)</li>
+                <li>Practicante en Desarrollo Web en Empresa XYZ (2019-2020)</li>
+                <li>Asistente de TI en colegio 123 (2018-2019)</li>
+            </ul>
+        </section>
+
+            <!-- Atajo Emmet: section>h2+ul>li*4 -->
+        <section>
+            <h2>Educacion y formacion</h2>
+            <ul>
+                <li>2014-2018:Grado en Ingeniería Informática. Universidad de Tecnología - Graduado con honores. </li>
+                <li>2024:Certificado de SCRUM FOUNDATION PROFESSIONAL CERTIFICATION SFPC</li>
+                <li>2024:Certificado de Diseñador de experiencia de usuario (UX)</li>
+                <li>Proyectos destacados: Desarrollo de una aplicación móvil para la gestión de eventos.</li>
+
+            </ul>
+        </section>
+
+             <!-- Atajo Emmet: section>h3--->
+        <section>
+            <h3>Capacidades y aptitudes personales</h3>
+        </section>
+
+        <!-- Atajo Emmet: section>h2+ul>li*1 -->
+        <section>
+            <h2>Lengua Materna</h2>
+            <ul>
+                <li>Español</li>
+            </ul>
+        </section>
+
+             <!-- Atajo Emmet: section>h2+ul>li*1 -->
+        <section>
+            <h2>Otros idiomas</h2>
+            <ul>
+                <li>Inglés:Nivel intermedio. Universidad Tecnologica Metripolitana</li>
+
+            </ul>
+        </section>
+
+        <section>
+            <h2>Capacidades y aptitudes técnicas</h2>
+            <ul>
+                <li>Lenguajes de Programación:Python, JavaScript, C#.</li>
+                <li>Desarollo Web: HTML5, CSS3, Sass, JavaScript (ES6+), React.js, Node.js, Express.js</li>
+                <li>Bases de Datos:MySQL, PostgreSQL, MongoDB</li>
+                <li>DevOps y CI/CD:Docker, Kubernetes, Jenkins, AWS</li>
+                <li>Herramientas de Desarrollo: Visual Studio Code</li>
+                <div class="spacing"></div>
+                <li>Experiencia en depuracion y optimizacion de codigo.</li>
+                <li>Habilidades de comunicación y cooperación en equipos multidisciplinarios.</li>
+                <li>Capacidad para gestionar multiples proyectos y cumplir con los plazos.</li>
+                <li>Proposición de nuevas ideas y soluciones creativas.</li>
+                <li>Capacidad para aprender y adaptarse rápidamente a nuevas tecnologías.</li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Permiso de Conduccion</h2>
+            <ul>
+                <li>Tipo de perimiso: B</li>
+                <li>Numero de Permiso: 123456789</li>
+                <li>Fecha de Expedicion: 15 de marzo de 2018</li>
+                <li>Fecha de vencimiento:15 de marzo del 2028</li>
+                <li>Vehiculo propio:Si</li>
+                <li>Disponibilidad para viajar:Si</li>
+            </ul>
+
+        </section>
+
+
+        <section>
+            <h2>Información Adicional</h2>
+            <ul>
+                <li>Certificación en Project Management Professional (PMP)</li>
+                <li>Curso de Desarrollo Web con JavaScript (Udemy)</li>
+                <li>Certificación en Ethical Hacking (CEH)</li>
+                <li>Ponente en la conferencia "Tech Trends 2023" sobre inteligencia artificial</li>
+                <li>Asistente al seminario "Desarrollo Web Moderno" organizado por la Universidad XYZ</li>
+                <li>Miembro del club de robótica de la universidad, participando en competiciones nacionales.</li>
+
+
+
+
+            </ul>
+        </section>
+
+
+
+    
+</body>
+</html>
